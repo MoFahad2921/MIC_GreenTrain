@@ -21,13 +21,13 @@ The project includes the following key files:
 
 ## Current Status
 
-This prototype is still a work in progress. While the UI is semi-static, we plan to make user data fully dynamic with the help of JavaScript. This enhancement is crucial for completing our vision for GreenTrip.
+This prototype is still a work in progress. While the UI is semi-static, I plan to make user data fully dynamic with the help of JavaScript. This enhancement is crucial for completing GreenTrip.
 
 ## Future Work
 
 - **Dynamic User Data**: Integrate JavaScript to make user data dynamic.
 - **Additional Features**: Continue to add and improve features for a better user experience.
-- **Change in Features**: We have also decided to remove the Exchange and Deals page and instead allow users to trade tokens directly from our UI.
+- **Change in Features**: We have also decided to remove the Exchange and Deals page for vouchers and coupons and instead allow users to trade tokens directly from our UI.
 
 ## How to Run
 
