@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchange & Deals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .header {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 24px;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .header .cross-button {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .header .cross-button:hover {
+            color: #ccc;
+        }
+
+        .token-balance {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: white;
+        }
+
+        .content {
+            width: calc(100% - 40px);
+            margin: 20px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .voucher {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .voucher h3 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .voucher p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .voucher .btn-claim {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .voucher .btn-claim:hover {
+            background-color: #45a049;
+        }
+
+        .voucher .btn-claim.disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="Homepage.html" class="cross-button">&times;</a>
+        Exchange & Deals
+        <div class="token-balance">Token Balance: <span id="tokenBalance">Loading...</span></div>
+    </div>
+
+    <div class="content">
+        <div class="voucher">
+            <h3>10% OFF RapidKL</h3>
+            <p>Bronze tier</p>
+            <p>5 tokens</p>
+            <button class="btn-claim">CLAIM</button>
+        </div>
+        <div class="voucher">
+            <h3>7% OFF Blueshark</h3>
+            <p>Bronze tier</p>
+            <p>5 tokens</p>
+            <button class="btn-claim">CLAIM</button>
+        </div>
+        <div class="voucher">
+            <h3>20% OFF Beam rides</h3>
+            <p>Silver tier</p>
+            <p>5 tokens</p>
+            <button class="btn-claim disabled">CLAIM</button>
+        </div>
+        <div class="voucher">
+            <h3>35% OFF RapidKL</h3>
+            <p>Gold Tier</p>
+            <p>10 tokens</p>
+            <button class="btn-claim disabled">CLAIM</button>
+        </div>
+    </div>
+
+    <!-- Replace with script -->
+    <script>
+        
+        setTimeout(() => {
+            const tokenBalance = 15.33; // Replace with fetched balance
+            document.getElementById('tokenBalance').textContent = tokenBalance;
+        }, 1000); // Simulated delay to make it look nice:)
+    </script>
+</body>
+</html>
+
+
+
+

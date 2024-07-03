@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+        .header a {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .section ul li {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .section ul li i {
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+        .footer {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+        }
+        .footer button {
+            background-color: white;
+            color: #666666;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .footer button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .footer button i {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="Homepage.html"><i class="fas fa-arrow-left"></i></a>
+        Settings
+    </div>
+    <div class="content">
+        <div class="section">
+            <h2>Control Centre</h2>
+            <ul>
+                <li><i class="fas fa-moon"></i> Mode</li>
+                <li><i class="fas fa-language"></i> Language</li>
+                <li><i class="fas fa-info-circle"></i> App Version</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Security</h2>
+            <ul>
+                <li><i class="fas fa-lock"></i> Account Security</li>
+                <li><i class="fas fa-history"></i> History</li>
+                <li><i class="fas fa-file-alt"></i> Terms & Services</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>More</h2>
+            <ul>
+                <li><i class="fas fa-question-circle"></i> FAQ</li>
+                <li><i class="fas fa-envelope"></i> Contact Us</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="Homepage.html"><button><i class="fas fa-home"></i></button></a>
+        <a href="Wallet.html"><button><i class="fas fa-wallet"></i></button></a>
+        <a href="Buy.html"><button><i class="fas fa-coins"></i></button></a>
+        <a href="Tree.html"><button><i class="fas fa-tree"></i></button></a>
+        <a href="Profile.html"><button><i class="fas fa-user"></i></button></a>
+    </div>
+</body>
+</html>

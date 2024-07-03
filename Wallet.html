@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .header {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 24px;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+        }
+        .header .cross-button {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .wallet-container {
+            width: calc(100% - 40px);
+            margin: 20px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .token-balance {
+            font-size: 25px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #e0f7ea;
+        }
+        .token-balance img {
+            width: 90px;
+            height: 90px; 
+        }
+        .token-price, .conversion-tool {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .transaction-history {
+            margin-top: 20px;
+            width: 100%;
+            text-align: left;
+        }
+        .transaction-history h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #f1f1f1;
+            margin-bottom: 10px;
+        }
+        .conversion-tool input, .conversion-tool select, .conversion-tool button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .conversion-tool button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .conversion-tool button:hover {
+            background-color: #45a049;
+        }
+        .jupiter-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .jupiter-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="Homepage.html" class="cross-button">&times;</a>
+        Wallet
+    </div>
+    <div class="wallet-container">
+        <div class="token-balance">
+            <div>
+                <p>Balance:</p>
+                <p><strong>159.03 GT</strong></p> <!--dynamic balance from user data -->
+            </div>
+            <img src="logo.PNG" alt="GT Token">
+        </div>
+        <div class="token-price" id="tokenPrice">
+            <!-- Dynamic price here -->
+        </div>
+        <div class="conversion-tool">
+            <h2>Token Conversion</h2>
+            <input type="number" id="gtAmount" placeholder="Amount in GT">
+            <select id="convertTo">
+                <option value="SOL">SOL</option>
+                <option value="USDC">USDC</option>
+                <option value="ETH">ETH</option>
+            </select>
+            <button onclick="convertTokens()">Convert</button>
+            <div id="conversionResult"></div>
+        </div>
+        <div class="transaction-history">
+            <h2>History</h2>
+            <div class="transaction-item">
+                <span>01 Jul, 13:20</span>
+                <span>RapidKL</span>
+                <span>+0.5 GT</span>
+            </div>
+            <div class="transaction-item">
+                <span>29 Jun, 08:59</span>
+                <span>RapidKL</span>
+                <span>+0.7 GT</span>
+            </div>
+            <div class="transaction-item">
+                <span>25 Jun, 16:20</span>
+                <span>Beam</span>
+                <span>+0.2 GT</span>
+            </div>
+            <div class="transaction-item">
+                <span>21 Jun, 11:32</span>
+                <span>Blueshark</span>
+                <span>+0.5 GT</span>
+            </div>
+            <div class="transaction-item">
+                <span>13 Jun, 09:47</span>
+                <span>RapidKL</span>
+                <span>+0.11 GT</span>
+            </div>
+            <div class="transaction-item">
+                <span>06 Jun, 16:21</span>
+                <span>RapidKL</span>
+                <span>+0.4 GT</span>
+            </div>
+            <div class="transaction-item">
+                <span>01 Jun, 17:55</span>
+                <span>Blueshark</span>
+                <span>+0.06 GT</span>
+            </div>
+        </div>
+        <a href="https://jup.ag" class="jupiter-button" target="_blank">Visit Jupiter Station</a>
+    </div>
+
+    <script>
+        // fetch token price from Jupiter Price API
+        async function fetchTokenPrice() {
+            try {
+                const response = await fetch('https://price.jup.ag/v6/price?ids=SOL');
+                const data = await response.json();
+                const solPrice = data.data.SOL.price;
+                const priceElement = document.getElementById('tokenPrice');
+                priceElement.innerHTML = `<p>Current SOL Price:</p><p><strong>${solPrice} USDC</strong></p>`;
+            } catch (error) {
+                console.error('Error fetching token price:', error);
+                const priceElement = document.getElementById('tokenPrice');
+                priceElement.innerHTML = `<p>Unable to fetch token price at the moment.</p>`;
+            }
+        }
+
+        // Function to convert GT tokens to selected cryptocurrency
+        async function convertTokens() {
+            const gtAmount = document.getElementById('gtAmount').value;
+            const convertTo = document.getElementById('convertTo').value;
+
+            if (!gtAmount) {
+                alert('Please enter an amount in GT.');
+                return;
+            }
+
+            try {
+                const response = await fetch(`https://price.jup.ag/v6/price?ids=${convertTo}`);
+                const data = await response.json();
+                const convertToPrice = data.data[convertTo].price;
+
+                // Convert GT to USD
+                const gtToUsd = 0.05; // 1 GT = 0.05 USD
+                
+                // Convert USD to the selected cryptocurrency
+                const usdToCrypto = 1 / convertToPrice;
+                
+                // Calculate the converted amount
+                const convertedAmount = gtAmount * gtToUsd * usdToCrypto;
+
+                const conversionResult = document.getElementById('conversionResult');
+                conversionResult.innerHTML = `<p>${gtAmount} GT is approximately ${convertedAmount.toFixed(6)} ${convertTo}</p>`;
+            } catch (error) {
+                console.error('Error converting tokens:', error);
+                const conversionResult = document.getElementById('conversionResult');
+                conversionResult.innerHTML = `<p>Unable to convert tokens at the moment.</p>`;
+            }
+        }
+
+        // Call fetchTokenPrice()
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchTokenPrice();
+        });
+    </script>
+</body>
+</html>
+
+           
+
+
+
+
+
+
+
+
+

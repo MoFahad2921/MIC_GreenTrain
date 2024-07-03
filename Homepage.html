@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenTrip</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 80vh;
+            margin: 0;
+        }
+        .header {
+            padding: 20px;
+            font-size: 24px;
+            color: #fff;
+            text-align: center;
+            background-color: #4CAF50;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            flex-shrink: 0; /* Prevent header from shrinking */
+        }
+        .settings-button {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background-color: #fff;
+            color: #666666;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+        }
+        .settings-button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .footer {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: absolute;
+            bottom: 0;
+            flex-shrink: 0;
+        }
+        .footer button {
+            background-color: white;
+            color: #666666;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .footer button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .footer button i {
+            font-size: 24px;
+        }
+        .node {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            height: 15%;
+            max-width: 600px;
+            flex-shrink: 0;
+        }
+        .node h2 {
+            color: #4CAF50;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .node p {
+            font-size: 16px;
+            color: #666666;
+        }
+        .node-link {
+            text-decoration: none;
+            color: #4CAF50;
+            display: block;
+            margin-top: 10px;
+        }
+        .node-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        GreenTrip
+        <a href="Settings.html" class="settings-button">Settings</a>
+    </div>
+
+    <div class="node">
+        <h2>CO2 Prevented</h2>
+        <p>XXX tons</p> <!-- dynamic or static value -->
+    </div>
+
+    <div class="node">
+        <h2>Advertisements</h2>
+        <p>Advertisement content goes here</p>
+    </div>
+
+    <div class="node">
+        <a href="Transport.html" class="node-link">
+            <h2>Transport Information</h2>
+            <p>Click here for more details</p>
+        </a>
+    </div>
+
+    <div class="node">
+        <a href="Buy.html" class="node-link">
+            <h2>Buy Now</h2>
+            <p>Click here to purchase</p>
+        </a>
+    </div>
+
+    <div class="footer">
+        <a href="Homepage.html"><button><i class="fas fa-home"></i></button></a>
+        <a href="Wallet.html"><button><i class="fas fa-wallet"></i></button></a>
+        <a href="Buy.html"><button><i class="fas fa-coins"></i></button></a>
+        <a href="Tree.html"><button><i class="fas fa-tree"></i></button></a>
+        <a href="Profile.html"><button><i class="fas fa-user"></i></button></a>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
